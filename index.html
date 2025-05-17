@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Raj - Cybersecurity Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a237e;
+            --secondary: #00bcd4;
+            --dark: #0d0d0d;
+            --light: #f5f5f5;
+            --accent: #ff5722;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+            z-index: 1;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            z-index: 2;
+        }
+        
+        h2 {
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            display: inline-block;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .social-links {
+            margin: 1.5rem 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 12px;
+            font-size: 1.7rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        section {
+            padding: 3rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .skill-card i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 1.8rem;
+            position: relative;
+            background: white;
+            z-index: 1;
+        }
+        
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .cert-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cert-img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: #f8f9fa;
+            padding: 1.5rem;
+        }
+        
+        .cert-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cert-content .btn {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        
+        .exp-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 768px) {
+            .exp-card {
+                flex-direction: row;
+            }
+            
+            .exp-img {
+                width: 40%;
+                height: auto;
+            }
+            
+            .exp-content {
+                width: 60%;
+            }
+        }
+        
+        .exp-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .exp-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .exp-content {
+            padding: 2rem;
+            flex-grow: 1;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .ach-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .ach-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .ach-img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .edu-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .edu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 3rem;
+            border-radius: 8px;
+            width: 85%;
+            max-width: 900px;
+            position: relative;
+            animation: modalopen 0.5s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-50px)}
+            to {opacity: 1; transform: translateY(0)}
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            color: var(--dark);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: var(--accent);
+        }
+        
+        /* Dark mode toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 99;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #f1f1f1;
+        }
+        
+        body.dark-mode .skill-card,
+        body.dark-mode .project-card,
+        body.dark-mode .cert-card,
+        body.dark-mode .exp-card,
+        body.dark-mode .ach-card,
+        body.dark-mode .blog-card,
+        body.dark-mode .edu-card,
+        body.dark-mode .modal-content {
+            background-color: #1e1e1e;
+            color: #f1f1f1;
+        }
+        
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #f1f1f1;
+        }
+        
+        body.dark-mode .btn {
+            background-color: var(--secondary);
+        }
+        
+        body.dark-mode .close-btn {
+            color: #f1f1f1;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 35, 126, 0.95);
+            z-index: 90;
+            padding: 1.2rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-logo:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 100;
+        }
+        
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Mobile menu */
+        @media (max-width: 768px) {
+            .skills-grid, .projects-grid, .certifications-grid, .achievements-grid, .education-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem 0;
+                transition: right 0.5s ease;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.5rem 0;
+                opacity: 0;
+                transform: translateX(20px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+            
+            .nav-links.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+            
+            .nav-links a::after {
+                display: none;
+            }
+        }
+        
+        /* Hamburger animation */
+        .hamburger.active .line1 {
+            transform: rotate(-45deg) translate(-6px, 7px);
+        }
+        
+        .hamburger.active .line2 {
+            opacity: 0;
+        }
+        
+        .hamburger.active .line3 {
+            transform: rotate(45deg) translate(-6px, -7px);
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Contact form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .form-message {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">Harsh Raj</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="container">
+            <img src="/Users/barnwalharsh/Downloads/portfolio 2/e79c4704-7a25-4828-a851-12f0736e5a9b.jpeg" alt="Harsh Raj" class="profile-img">
+            <h1>Harsh Raj</h1>
+            <p>Cybersecurity Professional | Ethical Hacker | Penetration Tester</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/barnwallharshh/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/harsh633" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <a href="#contact" class="btn">Contact Me</a>
+            <a href="#" class="btn" id="download-cv">Download CV</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Hi, I'm Harsh Raj, a passionate Cybersecurity professional specializing in Ethical Hacking, Penetration Testing, and Network Security. I'm dedicated to identifying vulnerabilities and securing systems against cyber threats. With hands-on experience in various security tools and frameworks, I'm committed to continuous learning in this ever-evolving field.</p>
+            <p>I have practical experience in web application penetration testing, vulnerability assessment, and security research. My goal is to help organizations strengthen their security posture by identifying and mitigating potential risks.</p>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +91-7979051759</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> harshbarnwal3408@gmail.com</p>
+                <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> linkedin.com/in/barnwallharshh</p>
+                <p><i class="fab fa-github"></i> <strong>GitHub:</strong> github.com/harsh633</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Penetration Testing</h3>
+                    <p>Kali Linux, Burp Suite, OWASP ZAP, Metasploit, Nmap</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Ethical Hacking</h3>
+                    <p>OWASP Top 10, Vulnerability Assessment, Exploit Development</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Network Security</h3>
+                    <p>Wireshark, Aircrack-ng, Ettercap, TCP/IP, Firewalls</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Programming</h3>
+                    <p>Python, Java, C++, HTML, Bash Scripting</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud Security</h3>
+                    <p>AWS (Lex, Lambda), Cloud Computing principles</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-user-secret"></i>
+                    <h3>Digital Forensics</h3>
+                    <p>Autopsy, Forensic analysis techniques</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                   
+                    <div class="project-content">
+                        <h3>Web Application Penetration Testing</h3>
+                        <p>Performed security testing on web-based platforms to identify vulnerabilities like SQL injection and XSS.</p>
+                        <p><strong>Tech:</strong> Burp Suite, OWASP ZAP, Kali Linux</p>
+                        <button class="btn view-project-btn" data-project="project1">View Details</button>
+                    </div>
+                </div>
+                <div class="project-card">
+                    
+                    <div class="project-content">
+                        <h3>Password Strength Checker</h3>
+                        <p>Developed a tool that evaluates password strength and provides improvement suggestions.</p>
+                        <p><strong>Tech:</strong> Python, Security Algorithms</p>
+                        <button class="btn view-project-btn" data-project="project2">View Details</button>
+                    </div>
+                </div>
+                <div class="project-card">
+                 
+                    <div class="project-content">
+                        <h3>Freelance Security Research</h3>
+                        <p>Identified and analyzed security flaws in web applications, networks, and IoT devices.</p>
+                        <p><strong>Tech:</strong> Various security tools and methodologies</p>
+                        <button class="btn view-project-btn" data-project="project3">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="edu-card">
+                    <h3>Lovely Professional University</h3>
+                    <p><strong>Bachelor of Technology - Computer Science and Engineering</strong></p>
+                    <p><i class="fas fa-calendar-alt"></i> August 2022 - Present</p>
+                    <p><i class="fas fa-graduation-cap"></i> CGPA: 6.26</p>
+                    <p><i class="fas fa-book"></i> Favorite Courses: C++, DSA, Linux, Penetration Testing, Digital Forensics</p>
+                </div>
+                <div class="edu-card">
+                    <h3>Gaya College, Gaya</h3>
+                    <p><strong>Intermediate</strong></p>
+                    <p><i class="fas fa-calendar-alt"></i> April 2020 - March 2021</p>
+                    <p><i class="fas fa-percentage"></i> Percentage: 70.2%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <img src="https://via.placeholder.com/400x300?text=Google+Cloud+Security" alt="Google Cloud Cyber Security" class="cert-img">
+                    <div class="cert-content">
+                        <h3>Google Cloud Cyber Security</h3>
+                        <p><strong>Issued:</strong> January 2025</p>
+                        <p>Comprehensive training in cloud security principles and practices.</p>
+                        <button class="btn view-cert-btn" data-cert="cert1">View Details</button>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <img src="/Users/barnwalharsh/Downloads/portfolio 2/Screenshot 2025-04-22 at 12.38.43 AM.png" class="cert-img">
+                    <div class="cert-content">
+                        <h3>Ethical hacking essentials</h3>
+                        <p><strong>Issued:</strong> April 2024</p>
+                        <p>Validated baseline cybersecurity skills from Cybrary.</p>
+                        <button class="btn view-cert-btn" data-cert="cert2">View Details</button>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <img src="/Users/barnwalharsh/Downloads/portfolio 2/Screenshot 2025-04-22 at 12.37.48 AM.png" alt="Cyber Threat Management" class="cert-img">
+                    <div class="cert-content">
+                        <h3>The bits and bytes of computer networking</h3>
+                        <p><strong>Issued:</strong> October 2024</p>
+                        <p>OSI layers,Subnetting,IPs,Sceurity+</p>
+                        <button class="btn view-cert-btn" data-cert="cert3">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="container">
+            <h2>Achievements</h2>
+            <div class="achievements-grid">
+               
+                <div class="ach-card">
+                    
+                    <h3>AWS Cloud Computing Training</h3>
+                    <p>Completed intensive training in AWS services including Lex and Lambda from Gokboru Tech Pvt. Ltd.</p>
+                    <button class="btn view-ach-btn" data-ach="ach2">View Details</button>
+                </div>
+                <div class="ach-card">
+                
+                    <h3>Bits and Bytes of Networking</h3>
+                    <p>Completed comprehensive networking course from Coursera in November 2023.</p>
+                    <button class="btn view-ach-btn" data-ach="ach3">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            <div id="form-message" class="form-message"></div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="project-modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Certification Modals -->
+    <div id="cert-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="cert-modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Achievement Modals -->
+    <div id="ach-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="ach-modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle" id="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Harsh Raj</h3>
+                <p>Cybersecurity Professional | Ethical Hacker | Penetration Tester</p>
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/barnwallharshh/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/harsh633" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">&copy; 2024 Harsh Raj. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+            
+            // Scroll reveal animation
+            const sections = document.querySelectorAll('section');
+            
+            const revealSections = () => {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight - 100) {
+                        section.classList.add('show');
+                    }
+                });
+            };
+            
+            // Initial check
+            revealSections();
+            
+            // Check on scroll
+            window.addEventListener('scroll', revealSections);
+            
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Project modals
+            const projectModal = document.getElementById('project-modal');
+            const projectModalContent = document.getElementById('project-modal-content');
+            const projectButtons = document.querySelectorAll('.view-project-btn');
+            
+            projectButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const projectId = button.getAttribute('data-project');
+                    let content = '';
+                    
+                    switch(projectId) {
+                        case 'project1':
+                            content = `
+                                <h2>Web Application Penetration Testing</h2>
+                               
+                                <p><strong>Date:</strong> June 2024</p>
+                                <p><strong>Description:</strong></p>
+                                <p>Conducted comprehensive security testing on web-based platforms to identify and mitigate vulnerabilities. The project involved:</p>
+                                <ul>
+                                    <li>Automated hotel booking queries using Amazon Lex for natural language processing</li>
+                                    <li>Utilized Burp Suite and OWASP ZAP for thorough security analysis</li>
+                                    <li>Identified critical SQL injection and XSS vulnerabilities</li>
+                                    <li>Provided detailed reports with remediation recommendations</li>
+                                </ul>
+                                <p><strong>Technologies Used:</strong> Kali Linux, Burp Suite, OWASP ZAP, Amazon Lex</p>
+                                <p><strong>Outcome:</strong> Successfully secured the web application against OWASP Top 10 vulnerabilities, improving overall security posture.</p>
+                                <a href="#" class="btn" style="display:inline-block; margin-top:1rem;">View Project Report</a>
+                            `;
+                            break;
+                        case 'project2':
+                            content = `
+                                <h2>Password Strength Checker</h2>
+                               
+                                <p><strong>Date:</strong> December 2022</p>
+                                <p><strong>Description:</strong></p>
+                                <p>Developed a comprehensive tool to evaluate password strength and provide actionable feedback for improvement. Key features include:</p>
+                                <ul>
+                                    <li>Algorithm to assess password complexity and entropy</li>
+                                    <li>Real-time feedback on password strength</li>
+                                    <li>Suggestions for creating stronger passwords</li>
+                                    <li>User-friendly interface with clear visual indicators</li>
+                                </ul>
+                                <p><strong>Technologies Used:</strong> Python, Security Algorithms, UI Design</p>
+                                <p><strong>Outcome:</strong> The tool helps users create significantly stronger passwords, reducing vulnerability to brute force attacks.</p>
+                                <a href="#" class="btn" style="display:inline-block; margin-top:1rem;">Try the Tool</a>
+                            `;
+                            break;
+                        case 'project3':
+                            content = `
+                                <h2>Freelance Security Research</h2>
+                               
+                                <p><strong>Description:</strong></p>
+                                <p>Conducted independent security research across various platforms and technologies:</p>
+                                <ul>
+                                    <li>Identified and analyzed security flaws in web applications, networks, mobile apps, and IoT devices</li>
+                                    <li>Performed penetration testing to simulate real-world cyberattacks</li>
+                                    <li>Documented findings and provided detailed remediation strategies</li>
+                                    <li>Collaborated with developers to implement security fixes</li>
+                                </ul>
+                                <p><strong>Technologies Used:</strong> Various security tools and methodologies depending on the target system</p>
+                                <p><strong>Outcome:</strong> Helped multiple organizations strengthen their security posture and mitigate potential risks.</p>
+                                <a href="#" class="btn" style="display:inline-block; margin-top:1rem;">View Research Papers</a>
+                            `;
+                            break;
+                    }
+                    
+                    projectModalContent.innerHTML = content;
+                    projectModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Certification modals
+            const certModal = document.getElementById('cert-modal');
+            const certModalContent = document.getElementById('cert-modal-content');
+            const certButtons = document.querySelectorAll('.view-cert-btn');
+            
+            certButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const certId = button.getAttribute('data-cert');
+                    let content = '';
+                    
+                    switch(certId) {
+                        case 'cert1':
+                            content = `
+                                <h2>Google Cloud Cyber Security</h2>
+                                <img src="https://via.placeholder.com/600x400?text=Google+Cloud+Security" alt="Google Cloud Cyber Security" style="width:100%; max-height:300px; object-fit:contain; margin:1rem 0;">
+                                <p><strong>Issued:</strong> January 2025</p>
+                                <p><strong>Description:</strong></p>
+                                <p>Comprehensive certification covering cloud security principles and best practices in Google Cloud Platform. The certification validates skills in:</p>
+                                <ul>
+                                    <li>Cloud identity and access management</li>
+                                    <li>Data protection and encryption in the cloud</li>
+                                    <li>Security monitoring and logging</li>
+                                    <li>Incident response in cloud environments</li>
+                                </ul>
+                                <p><strong>Skills Validated:</strong></p>
+                                <ul>
+                                    <li>Implementing security controls in GCP</li>
+                                    <li>Managing identity and access in cloud environments</li>
+                                    <li>Configuring network security in GCP</li>
+                                    <li>Monitoring for security threats</li>
+                                </ul>
+                                <a href="#" class="btn" style="display:inline-block; margin-top:1rem;">View Certificate</a>
+                            `;
+                            break;
+                        case 'cert2':
+                            content = `
+                                <h2>CompTIA Security+</h2>
+                                <img src="https://via.placeholder.com/600x400?text=CompTIA+Security+" alt="CompTIA Security+" style="width:100%; max-height:300px; object-fit:contain; margin:1rem 0;">
+                                <p><strong>Issued:</strong> April 2024</p>
+                                <p><strong>Provider:</strong> Cybrary</p>
+                                <p><strong>Description:</strong></p>
+                                <p>Globally recognized certification that validates foundational cybersecurity skills. The certification covers:</p>
+                                <ul>
+                                    <li>Threats, attacks and vulnerabilities</li>
+                                    <li>Technologies and tools</li>
+                                    <li>Architecture and design</li>
+                                    <li>Identity and access management</li>
+                                    <li>Risk management</li>
+                                    <li>Cryptography and PKI</li>
+                                </ul>
+                                <p><strong>Skills Validated:</strong></p>
+                                <ul>
+                                    <li>Assessing security posture of an enterprise environment</li>
+                                    <li>Recommending and implementing appropriate security solutions</li>
+                                    <li>Monitoring and securing hybrid environments</li>
+                                    <li>Operating with an awareness of applicable laws and policies</li>
+                                </ul>
+                                <a href="#" class="btn" style="display:inline-block; margin-top:1rem;">Verify Credential</a>
+                            `;
+                            break;
+                        case 'cert3':
+                            content = `
+                                <h2>Cyber Threat Management</h2>
+                                <img src="https://via.placeholder.com/600x400?text=Cyber+Threat+Management" alt="Cyber Threat Management" style="width:100%; max-height:300px; object-fit:contain; margin:1rem 0;">
+                                <p><strong>Issued:</strong> October 2024</p>
+                                <p><strong>Provider:</strong> Cisco</p>
+                                <p><strong>Description:</strong></p>
+                                <p>Specialized certification from Cisco focusing on identifying, analyzing, and managing cyber threats. The program covered:</p>
+                                <ul>
+                                    <li>Threat intelligence and analysis</li>
+                                    <li>Security monitoring and detection</li>
+                                    <li>Incident response procedures</li>
+                                    <li>Threat hunting techniques</li>
+                                </ul>
+                                <p><strong>Skills Validated:</strong></p>
+                                <ul>
+                                    <li>Identifying and classifying cyber threats</li>
+                                    <li>Using Cisco security solutions for threat detection</li>
+                                    <li>Implementing appropriate countermeasures</li>
+                                    <li>Documenting and reporting security incidents</li>
+                                </ul>
+                                <p><strong>Badge Earned:</strong> Cisco Cyber Threat Management Specialist</p>
+                                <a href="#" class="btn" style="display:inline-block; margin-top:1rem;">View Badge</a>
+                            `;
+                            break;
+                    }
+                    
+                    certModalContent.innerHTML = content;
+                    certModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Achievement modals
+            const achModal = document.getElementById('ach-modal');
+            const achModalContent = document.getElementById('ach-modal-content');
+            const achButtons = document.querySelectorAll('.view-ach-btn');
+            
+            achButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const achId = button.getAttribute('data-ach');
+                    let content = '';
+                    
+                    switch(achId) {
+                        case 'ach1':
+                            content = `
+                                <h2>Cyber Security Analyst Position</h2>
+                                <img src="https://via.placeholder.com/800x400?text=Cyber+Security+Analyst" alt="Cyber Security Analyst" style="width:100%; max-height:400px; object-fit:contain; margin:1rem 0;">
+                                <p><strong>Company:</strong> Cyber Sapiens</p>
+                                <p><strong>Date:</strong> July 2024</p>
+                                <p><strong>Details:</strong></p>
+                                <p>Successfully secured a position as a Cyber Security Analyst at Cyber Sapiens, demonstrating expertise in:</p>
+                                <ul>
+                                    <li>Cybersecurity principles and best practices</li>
+                                    <li>Strategic alignment of security with business objectives</li>
+                                    <li>Threat analysis and vulnerability assessment</li>
+                                    <li>Security tool implementation and management</li>
+                                </ul>
+                                <p><strong>Responsibilities:</strong></p>
+                                <ul>
+                                    <li>Monitoring security systems for anomalies</li>
+                                    <li>Investigating security incidents</li>
+                                    <li>Implementing security controls</li>
+                                    <li>Conducting security awareness training</li>
+                                </ul>
+                                <a href="#" class="btn" style="display:inline-block; margin-top:1rem;">View Company Website</a>
+                            `;
+                            break;
+                        case 'ach2':
+                            content = `
+                                <h2>AWS Cloud Computing Training</h2>
+                                <img src="https://via.placeholder.com/800x400?text=AWS+Training" alt="AWS Training" style="width:100%; max-height:400px; object-fit:contain; margin:1rem 0;">
+                                <p><strong>Provider:</strong> Gokboru Tech Pvt. Ltd</p>
+                                <p><strong>Duration:</strong> June - July 2024</p>
+                                <p><strong>Details:</strong></p>
+                                <p>Completed intensive training program covering various AWS services and cloud computing concepts:</p>
+                                <ul>
+                                    <li>Amazon Lex for natural language processing</li>
+                                    <li>AWS Lambda for serverless computing</li>
+                                    <li>S3 buckets for cloud storage</li>
+                                    <li>EC2 for cloud computing</li>
+                                    <li>Security best practices in AWS</li>
+                                </ul>
+                                <p><strong>Skills Acquired:</strong></p>
+                                <ul>
+                                    <li>Designing and deploying scalable applications on AWS</li>
+                                    <li>Implementing security controls in cloud environments</li>
+                                    <li>Automating cloud operations</li>
+                                    <li>Optimizing cloud costs</li>
+                                </ul>
+                                <a href="#" class="btn" style="display:inline-block; margin-top:1rem;">View Certificate</a>
+                            `;
+                            break;
+                        case 'ach3':
+                            content = `
+                                <h2>Bits and Bytes of Networking</h2>
+                                <img src="https://via.placeholder.com/800x400?text=Networking" alt="Networking" style="width:100%; max-height:400px; object-fit:contain; margin:1rem 0;">
+                                <p><strong>Provider:</strong> Coursera</p>
+                                <p><strong>Completed:</strong> November 2023</p>
+                                <p><strong>Details:</strong></p>
+                                <p>Comprehensive course covering fundamental networking concepts essential for cybersecurity professionals:</p>
+                                <ul>
+                                    <li>Network protocols and architecture</li>
+                                    <li>TCP/IP model and internetworking</li>
+                                    <li>Network security fundamentals</li>
+                                    <li>Troubleshooting network issues</li>
+                                    <li>Cloud networking concepts</li>
+                                </ul>
+                                <p><strong>Key Takeaways:</strong></p>
+                                <ul>
+                                    <li>Understanding of how data travels across networks</li>
+                                    <li>Ability to analyze network traffic for security purposes</li>
+                                    <li>Knowledge of network vulnerabilities and protections</li>
+                                    <li>Skills to secure network infrastructure</li>
+                                </ul>
+                                <a href="#" class="btn" style="display:inline-block; margin-top:1rem;">View Course</a>
+                            `;
+                            break;
+                    }
+                    
+                    achModalContent.innerHTML = content;
+                    achModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close modals
+            const closeButtons = document.querySelectorAll('.close-btn');
+            
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.modal').forEach(modal => {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target.classList.contains('modal')) {
+                    e.target.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Dark mode toggle
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            
+            darkModeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+            
+            // Check for saved dark mode preference
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+            
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send the form data to a server
+                // For this example, we'll just show a success message
+                
+                formMessage.textContent = `Thank you, ${name}! Your message has been sent. I'll get back to you soon.`;
+                formMessage.style.color = 'green';
+                formMessage.style.marginTop = '1.5rem';
+                formMessage.style.padding = '1rem';
+                formMessage.style.borderRadius = '5px';
+                formMessage.style.backgroundColor = 'rgba(0, 200, 0, 0.1)';
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.textContent = '';
+                    formMessage.style.backgroundColor = 'transparent';
+                }, 5000);
+            });
+            
+            // Download CV button
+            const downloadBtn = document.getElementById('download-cv');
+            
+            downloadBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // In a real implementation, this would link to your actual CV PDF
+                // For now, we'll simulate a download
+                const link = document.createElement('a');
+                link.href = 'CV_202503180813140774_12211333.pdf';
+                link.download = 'Harsh_Raj_CV.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Show a message
+                const originalText = downloadBtn.textContent;
+                downloadBtn.textContent = 'Downloading...';
+                setTimeout(() => {
+                    downloadBtn.textContent = originalText;
+                }, 2000);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
